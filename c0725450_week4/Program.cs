@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3
+namespace c0725450_week4
 {
     class Program
     {
         static void Main(string[] args)
         {
-
+            Countryside Ontario = new Countryside();
+            Ontario.run();
 
         }
     }
@@ -33,6 +34,15 @@ namespace ConsoleApp3
         public Village Maple;
         public Village Toronto;
         public Village Ajax;
+        public Village Head;
+        public Village Tail;
+        public Village Temp;
+
+        public void run()
+        {
+            this.MapInitializer();
+            this.LookForAstrilde();
+        }
 
         public void MapInitializer()
         {
@@ -40,6 +50,7 @@ namespace ConsoleApp3
             Maple.villageName = "Maple";
             Maple.nextVillage = Toronto;
             Maple.previousVillage = null;
+            Maple.isAstrildeHere = true;
 
             Toronto = new Village();
             Toronto.villageName = "Toronto";
@@ -50,12 +61,20 @@ namespace ConsoleApp3
             Ajax.villageName = "Ajax";
             Ajax.nextVillage = null;
             Ajax.previousVillage = Toronto;
-            Ajax.isAstrildeHere = true;
+            //Ajax.isAstrildeHere = true;
         }
 
         public void LookForAstrilde()
         {
+            Head = Maple;
+            if (Head.isAstrildeHere)
+            {
+                Console.WriteLine("Yeah! Astrilde is in " + Head.villageName);
+            }
+            //while (true)
+            //{
 
+            //}
         }
 
     }
